@@ -15,10 +15,27 @@ from starlette.responses import JSONResponse
 from dotenv import dotenv_values
 
 credentials = dict(dotenv_values(".env"))
-print(credentials)
 
+# adding cors header
+
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+# adding cors urls
+
+origins = [
+    'http://localhost:3000',
+]
+# add middleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*']
+
+)
 
 
 @app.get('/')
@@ -116,6 +133,7 @@ class EmailSchema(BaseModel):
 class EmailContent(BaseModel):
     message: str
     subject: str
+
 
 print(credentials['EMAIL'])
 
