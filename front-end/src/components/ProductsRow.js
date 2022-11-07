@@ -1,30 +1,19 @@
-import react from "react";
-
-const ProductsRow = ({id, name, quantity_in_stock, quantity_sold, unit_price, revenue}) => {
+const ProductsRow = ({id, name, quantity_in_stock, quantity_sold, unit_price, revenue, handleDelete}) => {
     return (
         <tr>
             <td>{id}</td>
             <td>{name}</td>
-            <td>{quantity_in_stock}</td>
+            <td>{ quantity_in_stock}</td>
             <td>{quantity_sold}</td>
             <td>{unit_price}</td>
             <td>{revenue}</td>
             <td>
-                <button className="btn btn-outline-info vtn-sml mr-2">
-                    Update
-                </button>
-            </td>
-            <td>
-                <button className="btn btn-outline-success vtn-sml mr-2">
-                    Supplier
-                </button>
-            </td>
-            <td>
-                <button className="btn btn-outline-danger vtn-sml mr-2">
-                    Delete
-                </button>
+                <button  className="btn btn-outline-info btn-sm ml-1 mr-2">Update</button>
+                <button className="btn btn-outline-success btn-sm mr-2">Supplier</button>
+                <button onClick={() => handleDelete(id)}  className = "btn btn-outline-danger btn-sm mr-2">Delete</button>
             </td>
         </tr>
-    )
+    );
 }
+
 export default ProductsRow

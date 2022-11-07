@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import {ProductProvider} from "./ProductContext";
 import ProductsTable from "./components/ProductTable";
 import AddProducts from "./components/AddProducts";
+
 function App() {
     return (
         <div>
@@ -14,8 +15,8 @@ function App() {
                         <NavBar/>
                         <div className="row">
                             <div className="col-sm-10 col-xm-12 mr-auto mr-auto ml-auto mt-4 mb-4">
-                                <ProductsTable/>
-                                 <Route exact path="/addproduct" component={AddProducts} />
+                                <Route exact path='/' component={ProductsTable}/>
+                                <Route exact path="/addproduct" component={AddProducts}/>
                             </div>
                         </div>
                     </ProductProvider>
