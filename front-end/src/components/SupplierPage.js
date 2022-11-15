@@ -9,7 +9,6 @@ const SupplierPage = () => {
 		setSupplierDetail({ ...supplierDetail, [e.target.name]: e.target.value });
 	};
 
-	// website to obtain fetch from curl: https://kigiri.github.io/fetch/
 	const handelAdd = async (e) => {
 		e.preventDefault();
 
@@ -28,11 +27,10 @@ const SupplierPage = () => {
 			body: JSON.stringify({
 				name: supplierDetail['name'],
 				email: supplierDetail['email'],
-				phone: supplierDetail['phone'],
+				phone_number: supplierDetail['phone'],
 				company: supplierDetail['company']
 			})
 		});
-
 		response.json().then((response) => {
 			if (response.status === 'ok') {
 				alert('Supplier added successfully');
@@ -43,7 +41,7 @@ const SupplierPage = () => {
 		setSupplierDetail({
 			name: '',
 			email: '',
-			phone: '',
+			phone_number: '',
 			company: '',
 			emailTitle: '',
 			email_msg: ''
@@ -68,7 +66,7 @@ const SupplierPage = () => {
 			body: JSON.stringify({
 				name: supplierDetail['name'],
 				email: supplierDetail['email'],
-				phone: supplierDetail['phone'],
+				phone_number: supplierDetail['phone'],
 				company: supplierDetail['company']
 			})
 		});

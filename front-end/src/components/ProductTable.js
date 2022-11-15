@@ -51,7 +51,7 @@ const ProductsTable = () => {
         const product = products.data.filter(product => product.id === id)[0]
         console.log(product)
         console.log(id)
-        fetch("http://localhost:8000/supplier/" + id, {
+        fetch("http://localhost:8000/supplier/2" , {
             headers: {
                 Accept: 'application/json'
             }
